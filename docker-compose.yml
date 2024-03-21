@@ -1,0 +1,36 @@
+version: "3"
+
+volumes:
+  grafana_data: {}
+  grafana_dashboards: {}
+  grafana_datasources: {}
+  db_data: {}
+
+services:
+  mssql:
+    image: "mcr.microsoft.com/mssql/server"
+    container_name: mssql
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Secret1234
+    volumes:
+      - db_data:/var/opt/mssql
+      - ${SCRIPT_DIR:-/opt/demo}:/demo
+    ports:
+      - 1433:1433
+    restart: unless-stopped
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - grafana_dashboards:/etc/grafana/provisioning/dashboards
+      - grafana_datasources:/etc/grafana/provisioning/datasources
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_USERS_ALLOW_SIGN_UP=false
+    ports:
+      - 3000:3000
+    restart: unless-stopped
