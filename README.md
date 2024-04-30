@@ -25,7 +25,7 @@ This is a simple demo to show how to use Grafana with a SQL Server database to v
      MSSQL_SCRIPT_DIR=/path/to/your/mssql/files
      ```
      - This will override the default value of `/mnt/c/grafanademo` in the `docker-compose.yml` file
-   - Run `docker-compose up -d` again after adding the `.env` file
+   - Run `docker compose --env-file .env up -d ` after adding the `.env` file
 3. Navigate to `http://localhost:3000` in your browser
 4. Log in with the default credentials (admin/admin)
 5. Add a new data source
