@@ -2,7 +2,7 @@ USE GrafanaDemo;
 GO
 
 DECLARE @StartDate DATETIME = '2024-02-01'; -- Adjust as needed
-DECLARE @EndDate DATETIME = '2024-04-30'; -- Adjust as needed
+DECLARE @EndDate DATETIME = '2024-08-30'; -- Adjust as needed
 
 -- Loop through all devices and call stored procedure
 DECLARE @DeviceId INT;

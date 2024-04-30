@@ -15,7 +15,7 @@ services:
       - SA_PASSWORD=Secret1234
     volumes:
       - db_data:/var/opt/mssql
-      - ${SCRIPT_DIR:-/opt/demo}:/demo
+      - ${MSSQL_SCRIPT_DIR:-/mnt/c/grafanademo}:/demo
     ports:
       - 1433:1433
     restart: unless-stopped
