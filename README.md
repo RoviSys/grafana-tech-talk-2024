@@ -31,7 +31,7 @@ This is a simple demo to show how to use Grafana with a SQL Server database to v
 5. Add a new data source
    - Type: Microsoft SQL Server
    - Host: mssql
-   - Database: demo
+   - Database: GrafanaDemo
    - User: sa
    - Password: Secret1234
 6. Import the dashboard from the `dashboard.json` file in this repository
